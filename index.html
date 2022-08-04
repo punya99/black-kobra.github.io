@@ -1,0 +1,2873 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+        (window.NREUM || (NREUM = {})).init = {
+            ajax: {
+                deny_list: ["bam.nr-data.net"]
+            }
+        };
+        (window.NREUM || (NREUM = {})).loader_config = {
+            licenseKey: "761e715901",
+            applicationID: "37278538"
+        };
+        window.NREUM || (NREUM = {}), __nr_require = function (t, e, n) {
+            function r(n) {
+                if (!e[n]) {
+                    var i = e[n] = {
+                        exports: {}
+                    };
+                    t[n][0].call(i.exports, function (e) {
+                        var i = t[n][1][e];
+                        return r(i || e)
+                    }, i, i.exports)
+                }
+                return e[n].exports
+            }
+            if ("function" == typeof __nr_require) return __nr_require;
+            for (var i = 0; i < n.length; i++) r(n[i]);
+            return r
+        }({
+            1: [function (t, e, n) {
+                function r() { }
+
+                function i(t, e, n, r) {
+                    return function () {
+                        return s.recordSupportability("API/" + e + "/called"), o(t + e, [u.now()].concat(c(arguments)), n ? null : this, r), n ? void 0 : this
+                    }
+                }
+                var o = t("handle"),
+                    a = t(9),
+                    c = t(10),
+                    f = t("ee").get("tracer"),
+                    u = t("loader"),
+                    s = t(4),
+                    d = NREUM;
+                "undefined" == typeof window.newrelic && (newrelic = d);
+                var p = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit", "addRelease"],
+                    l = "api-",
+                    v = l + "ixn-";
+                a(p, function (t, e) {
+                    d[e] = i(l, e, !0, "api")
+                }), d.addPageAction = i(l, "addPageAction", !0), d.setCurrentRouteName = i(l, "routeName", !0), e.exports = newrelic, d.interaction = function () {
+                    return (new r).get()
+                };
+                var m = r.prototype = {
+                    createTracer: function (t, e) {
+                        var n = {},
+                            r = this,
+                            i = "function" == typeof e;
+                        return o(v + "tracer", [u.now(), t, n], r),
+                            function () {
+                                if (f.emit((i ? "" : "no-") + "fn-start", [u.now(), r, i], n), i) try {
+                                    return e.apply(this, arguments)
+                                } catch (t) {
+                                    throw f.emit("fn-err", [arguments, this, t], n), t
+                                } finally {
+                                        f.emit("fn-end", [u.now()], n)
+                                    }
+                            }
+                    }
+                };
+                a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function (t, e) {
+                    m[e] = i(v, e)
+                }), newrelic.noticeError = function (t, e) {
+                    "string" == typeof t && (t = new Error(t)), s.recordSupportability("API/noticeError/called"), o("err", [t, u.now(), !1, e])
+                }
+            }, {}],
+            2: [function (t, e, n) {
+                function r(t) {
+                    if (NREUM.init) {
+                        for (var e = NREUM.init, n = t.split("."), r = 0; r < n.length - 1; r++)
+                            if (e = e[n[r]], "object" != typeof e) return;
+                        return e = e[n[n.length - 1]]
+                    }
+                }
+                e.exports = {
+                    getConfiguration: r
+                }
+            }, {}],
+            3: [function (t, e, n) {
+                var r = !1;
+                try {
+                    var i = Object.defineProperty({}, "passive", {
+                        get: function () {
+                            r = !0
+                        }
+                    });
+                    window.addEventListener("testPassive", null, i), window.removeEventListener("testPassive", null, i)
+                } catch (o) { }
+                e.exports = function (t) {
+                    return r ? {
+                        passive: !0,
+                        capture: !!t
+                    } : !!t
+                }
+            }, {}],
+            4: [function (t, e, n) {
+                function r(t, e) {
+                    var n = [a, t, {
+                        name: t
+                    }, e];
+                    return o("storeMetric", n, null, "api"), n
+                }
+
+                function i(t, e) {
+                    var n = [c, t, {
+                        name: t
+                    }, e];
+                    return o("storeEventMetrics", n, null, "api"), n
+                }
+                var o = t("handle"),
+                    a = "sm",
+                    c = "cm";
+                e.exports = {
+                    constants: {
+                        SUPPORTABILITY_METRIC: a,
+                        CUSTOM_METRIC: c
+                    },
+                    recordSupportability: r,
+                    recordCustom: i
+                }
+            }, {}],
+            5: [function (t, e, n) {
+                function r() {
+                    return c.exists && performance.now ? Math.round(performance.now()) : (o = Math.max((new Date).getTime(), o)) - a
+                }
+
+                function i() {
+                    return o
+                }
+                var o = (new Date).getTime(),
+                    a = o,
+                    c = t(11);
+                e.exports = r, e.exports.offset = a, e.exports.getLastTimestamp = i
+            }, {}],
+            6: [function (t, e, n) {
+                function r(t, e) {
+                    var n = t.getEntries();
+                    n.forEach(function (t) {
+                        "first-paint" === t.name ? l("timing", ["fp", Math.floor(t.startTime)]) : "first-contentful-paint" === t.name && l("timing", ["fcp", Math.floor(t.startTime)])
+                    })
+                }
+
+                function i(t, e) {
+                    var n = t.getEntries();
+                    if (n.length > 0) {
+                        var r = n[n.length - 1];
+                        if (u && u < r.startTime) return;
+                        var i = [r],
+                            o = a({});
+                        o && i.push(o), l("lcp", i)
+                    }
+                }
+
+                function o(t) {
+                    t.getEntries().forEach(function (t) {
+                        t.hadRecentInput || l("cls", [t])
+                    })
+                }
+
+                function a(t) {
+                    var e = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+                    if (e) return e.type && (t["net-type"] = e.type), e.effectiveType && (t["net-etype"] = e.effectiveType), e.rtt && (t["net-rtt"] = e.rtt), e.downlink && (t["net-dlink"] = e.downlink), t
+                }
+
+                function c(t) {
+                    if (t instanceof y && !w) {
+                        var e = Math.round(t.timeStamp),
+                            n = {
+                                type: t.type
+                            };
+                        a(n), e <= v.now() ? n.fid = v.now() - e : e > v.offset && e <= Date.now() ? (e -= v.offset, n.fid = v.now() - e) : e = v.now(), w = !0, l("timing", ["fi", e, n])
+                    }
+                }
+
+                function f(t) {
+                    "hidden" === t && (u = v.now(), l("pageHide", [u]))
+                }
+                if (!("init" in NREUM && "page_view_timing" in NREUM.init && "enabled" in NREUM.init.page_view_timing && NREUM.init.page_view_timing.enabled === !1)) {
+                    var u, s, d, p, l = t("handle"),
+                        v = t("loader"),
+                        m = t(8),
+                        g = t(3),
+                        y = NREUM.o.EV;
+                    if ("PerformanceObserver" in window && "function" == typeof window.PerformanceObserver) {
+                        s = new PerformanceObserver(r);
+                        try {
+                            s.observe({
+                                entryTypes: ["paint"]
+                            })
+                        } catch (h) { }
+                        d = new PerformanceObserver(i);
+                        try {
+                            d.observe({
+                                entryTypes: ["largest-contentful-paint"]
+                            })
+                        } catch (h) { }
+                        p = new PerformanceObserver(o);
+                        try {
+                            p.observe({
+                                type: "layout-shift",
+                                buffered: !0
+                            })
+                        } catch (h) { }
+                    }
+                    if ("addEventListener" in document) {
+                        var w = !1,
+                            b = ["click", "keydown", "mousedown", "pointerdown", "touchstart"];
+                        b.forEach(function (t) {
+                            document.addEventListener(t, c, g(!1))
+                        })
+                    }
+                    m(f)
+                }
+            }, {}],
+            7: [function (t, e, n) {
+                function r(t, e) {
+                    if (!i) return !1;
+                    if (t !== i) return !1;
+                    if (!e) return !0;
+                    if (!o) return !1;
+                    for (var n = o.split("."), r = e.split("."), a = 0; a < r.length; a++)
+                        if (r[a] !== n[a]) return !1;
+                    return !0
+                }
+                var i = null,
+                    o = null,
+                    a = /Version\/(\S+)\s+Safari/;
+                if (navigator.userAgent) {
+                    var c = navigator.userAgent,
+                        f = c.match(a);
+                    f && c.indexOf("Chrome") === -1 && c.indexOf("Chromium") === -1 && (i = "Safari", o = f[1])
+                }
+                e.exports = {
+                    agent: i,
+                    version: o,
+                    match: r
+                }
+            }, {}],
+            8: [function (t, e, n) {
+                function r(t) {
+                    function e() {
+                        t(c && document[c] ? document[c] : document[o] ? "hidden" : "visible")
+                    }
+                    "addEventListener" in document && a && document.addEventListener(a, e, i(!1))
+                }
+                var i = t(3);
+                e.exports = r;
+                var o, a, c;
+                "undefined" != typeof document.hidden ? (o = "hidden", a = "visibilitychange", c = "visibilityState") : "undefined" != typeof document.msHidden ? (o = "msHidden", a = "msvisibilitychange") : "undefined" != typeof document.webkitHidden && (o = "webkitHidden", a = "webkitvisibilitychange", c = "webkitVisibilityState")
+            }, {}],
+            9: [function (t, e, n) {
+                function r(t, e) {
+                    var n = [],
+                        r = "",
+                        o = 0;
+                    for (r in t) i.call(t, r) && (n[o] = e(r, t[r]), o += 1);
+                    return n
+                }
+                var i = Object.prototype.hasOwnProperty;
+                e.exports = r
+            }, {}],
+            10: [function (t, e, n) {
+                function r(t, e, n) {
+                    e || (e = 0), "undefined" == typeof n && (n = t ? t.length : 0);
+                    for (var r = -1, i = n - e || 0, o = Array(i < 0 ? 0 : i); ++r < i;) o[r] = t[e + r];
+                    return o
+                }
+                e.exports = r
+            }, {}],
+            11: [function (t, e, n) {
+                e.exports = {
+                    exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window.performance.timing.navigationStart
+                }
+            }, {}],
+            ee: [function (t, e, n) {
+                function r() { }
+
+                function i(t) {
+                    function e(t) {
+                        return t && t instanceof r ? t : t ? u(t, f, a) : a()
+                    }
+
+                    function n(n, r, i, o, a) {
+                        if (a !== !1 && (a = !0), !l.aborted || o) {
+                            t && a && t(n, r, i);
+                            for (var c = e(i), f = m(n), u = f.length, s = 0; s < u; s++) f[s].apply(c, r);
+                            var p = d[w[n]];
+                            return p && p.push([b, n, r, c]), c
+                        }
+                    }
+
+                    function o(t, e) {
+                        h[t] = m(t).concat(e)
+                    }
+
+                    function v(t, e) {
+                        var n = h[t];
+                        if (n)
+                            for (var r = 0; r < n.length; r++) n[r] === e && n.splice(r, 1)
+                    }
+
+                    function m(t) {
+                        return h[t] || []
+                    }
+
+                    function g(t) {
+                        return p[t] = p[t] || i(n)
+                    }
+
+                    function y(t, e) {
+                        l.aborted || s(t, function (t, n) {
+                            e = e || "feature", w[n] = e, e in d || (d[e] = [])
+                        })
+                    }
+                    var h = {},
+                        w = {},
+                        b = {
+                            on: o,
+                            addEventListener: o,
+                            removeEventListener: v,
+                            emit: n,
+                            get: g,
+                            listeners: m,
+                            context: e,
+                            buffer: y,
+                            abort: c,
+                            aborted: !1
+                        };
+                    return b
+                }
+
+                function o(t) {
+                    return u(t, f, a)
+                }
+
+                function a() {
+                    return new r
+                }
+
+                function c() {
+                    (d.api || d.feature) && (l.aborted = !0, d = l.backlog = {})
+                }
+                var f = "nr@context",
+                    u = t("gos"),
+                    s = t(9),
+                    d = {},
+                    p = {},
+                    l = e.exports = i();
+                e.exports.getOrSetContext = o, l.backlog = d
+            }, {}],
+            gos: [function (t, e, n) {
+                function r(t, e, n) {
+                    if (i.call(t, e)) return t[e];
+                    var r = n();
+                    if (Object.defineProperty && Object.keys) try {
+                        return Object.defineProperty(t, e, {
+                            value: r,
+                            writable: !0,
+                            enumerable: !1
+                        }), r
+                    } catch (o) { }
+                    return t[e] = r, r
+                }
+                var i = Object.prototype.hasOwnProperty;
+                e.exports = r
+            }, {}],
+            handle: [function (t, e, n) {
+                function r(t, e, n, r) {
+                    i.buffer([t], r), i.emit(t, e, n)
+                }
+                var i = t("ee").get("handle");
+                e.exports = r, r.ee = i
+            }, {}],
+            id: [function (t, e, n) {
+                function r(t) {
+                    var e = typeof t;
+                    return !t || "object" !== e && "function" !== e ? -1 : t === window ? 0 : a(t, o, function () {
+                        return i++
+                    })
+                }
+                var i = 1,
+                    o = "nr@id",
+                    a = t("gos");
+                e.exports = r
+            }, {}],
+            loader: [function (t, e, n) {
+                function r() {
+                    if (!M++) {
+                        var t = T.info = NREUM.info,
+                            e = m.getElementsByTagName("script")[0];
+                        if (setTimeout(u.abort, 3e4), !(t && t.licenseKey && t.applicationID && e)) return u.abort();
+                        f(x, function (e, n) {
+                            t[e] || (t[e] = n)
+                        });
+                        var n = a();
+                        c("mark", ["onload", n + T.offset], null, "api"), c("timing", ["load", n]);
+                        var r = m.createElement("script");
+                        0 === t.agent.indexOf("http://") || 0 === t.agent.indexOf("https://") ? r.src = t.agent : r.src = l + "://" + t.agent, e.parentNode.insertBefore(r, e)
+                    }
+                }
+
+                function i() {
+                    "complete" === m.readyState && o()
+                }
+
+                function o() {
+                    c("mark", ["domContent", a() + T.offset], null, "api")
+                }
+                var a = t(5),
+                    c = t("handle"),
+                    f = t(9),
+                    u = t("ee"),
+                    s = t(7),
+                    d = t(2),
+                    p = t(3),
+                    l = d.getConfiguration("ssl") === !1 ? "http" : "https",
+                    v = window,
+                    m = v.document,
+                    g = "addEventListener",
+                    y = "attachEvent",
+                    h = v.XMLHttpRequest,
+                    w = h && h.prototype,
+                    b = !1;
+                NREUM.o = {
+                    ST: setTimeout,
+                    SI: v.setImmediate,
+                    CT: clearTimeout,
+                    XHR: h,
+                    REQ: v.Request,
+                    EV: v.Event,
+                    PR: v.Promise,
+                    MO: v.MutationObserver
+                };
+                var E = "" + location,
+                    x = {
+                        beacon: "bam.nr-data.net",
+                        errorBeacon: "bam.nr-data.net",
+                        agent: "js-agent.newrelic.com/nr-1216.min.js"
+                    },
+                    O = h && w && w[g] && !/CriOS/.test(navigator.userAgent),
+                    T = e.exports = {
+                        offset: a.getLastTimestamp(),
+                        now: a,
+                        origin: E,
+                        features: {},
+                        xhrWrappable: O,
+                        userAgent: s,
+                        disabled: b
+                    };
+                if (!b) {
+                    t(1), t(6), m[g] ? (m[g]("DOMContentLoaded", o, p(!1)), v[g]("load", r, p(!1))) : (m[y]("onreadystatechange", i), v[y]("onload", r)), c("mark", ["firstbyte", a.getLastTimestamp()], null, "api");
+                    var M = 0
+                }
+            }, {}],
+            "wrap-function": [function (t, e, n) {
+                function r(t, e) {
+                    function n(e, n, r, f, u) {
+                        function nrWrapper() {
+                            var o, a, s, p;
+                            try {
+                                a = this, o = d(arguments), s = "function" == typeof r ? r(o, a) : r || {}
+                            } catch (l) {
+                                i([l, "", [o, a, f], s], t)
+                            }
+                            c(n + "start", [o, a, f], s, u);
+                            try {
+                                return p = e.apply(a, o)
+                            } catch (v) {
+                                throw c(n + "err", [o, a, v], s, u), v
+                            } finally {
+                                c(n + "end", [o, a, p], s, u)
+                            }
+                        }
+                        return a(e) ? e : (n || (n = ""), nrWrapper[p] = e, o(e, nrWrapper, t), nrWrapper)
+                    }
+
+                    function r(t, e, r, i, o) {
+                        r || (r = "");
+                        var c, f, u, s = "-" === r.charAt(0);
+                        for (u = 0; u < e.length; u++) f = e[u], c = t[f], a(c) || (t[f] = n(c, s ? f + r : r, i, f, o))
+                    }
+
+                    function c(n, r, o, a) {
+                        if (!v || e) {
+                            var c = v;
+                            v = !0;
+                            try {
+                                t.emit(n, r, o, e, a)
+                            } catch (f) {
+                                i([f, n, r, o], t)
+                            }
+                            v = c
+                        }
+                    }
+                    return t || (t = s), n.inPlace = r, n.flag = p, n
+                }
+
+                function i(t, e) {
+                    e || (e = s);
+                    try {
+                        e.emit("internal-error", t)
+                    } catch (n) { }
+                }
+
+                function o(t, e, n) {
+                    if (Object.defineProperty && Object.keys) try {
+                        var r = Object.keys(t);
+                        return r.forEach(function (n) {
+                            Object.defineProperty(e, n, {
+                                get: function () {
+                                    return t[n]
+                                },
+                                set: function (e) {
+                                    return t[n] = e, e
+                                }
+                            })
+                        }), e
+                    } catch (o) {
+                        i([o], n)
+                    }
+                    for (var a in t) l.call(t, a) && (e[a] = t[a]);
+                    return e
+                }
+
+                function a(t) {
+                    return !(t && t instanceof Function && t.apply && !t[p])
+                }
+
+                function c(t, e) {
+                    var n = e(t);
+                    return n[p] = t, o(t, n, s), n
+                }
+
+                function f(t, e, n) {
+                    var r = t[e];
+                    t[e] = c(r, n)
+                }
+
+                function u() {
+                    for (var t = arguments.length, e = new Array(t), n = 0; n < t; ++n) e[n] = arguments[n];
+                    return e
+                }
+                var s = t("ee"),
+                    d = t(10),
+                    p = "nr@original",
+                    l = Object.prototype.hasOwnProperty,
+                    v = !1;
+                e.exports = r, e.exports.wrapFunction = c, e.exports.wrapInPlace = f, e.exports.argsToArray = u
+            }, {}]
+        }, {}, ["loader"]);
+    </script>
+    <link rel="canonical" href="https://www.-.com/home/" />
+    <link rel="shortlink" href="https://www.-.com/" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="description"
+        content="- (NASDAQ: CRNC) is the global industry leader in creating unique, moving experiences for the automotive world." />
+    <meta property="og:site_name" content="-" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.-.com/home" />
+    <meta property="og:title" content="- | -" />
+    <meta property="og:description"
+        content="The Investor Relations website contains information about -&#039;s business for stockholders, potential investors, and financial analysts." />
+    <meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logo1.png" type="image/vnd.microsoft.icon" />
+    <link rel="alternate" hreflang="en" href="https://www.-.com/" />
+
+    <title>BLACK COBRA</title>
+    <link rel="stylesheet" media="all"
+        href="./css/one.css" />
+    <link rel="stylesheet" media="all"
+        href="./css/two.css" />
+    <link rel="stylesheet" media="all" href="//fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" media="all" href="//fonts.googleapis.com/css2?family=Roboto:wght@500&amp;display=swap" />
+    <link rel="stylesheet" media="all" href="//use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link rel="stylesheet" media="all" href="//unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" media="all"
+        href="./css/three.css" />
+    <link rel="stylesheet" media="all"
+        href="./css/eight.css" />
+    <link rel="stylesheet" media="all"
+        href="./css/four.css" />
+    <link rel="stylesheet" media="screen"
+        href="./css/five.css" />
+    <link rel="stylesheet" media="print"
+        href="./css/six.css" />
+    <link rel="stylesheet" media="all"
+        href="./css/seven.css" />
+
+    <script src="./js/three.js"></script>
+    <script src="./js/four.js"></script>
+
+   
+</head>
+
+<body
+    class="body-sidebars-none nir-node nir-node--type-nir-landing-page nir-node--5811 path-frontpage page-node-type-nir-landing-page">
+
+    <div id="skip">
+        <a class="visually-hidden focusable skip-link" href="#main-menu">
+            Please Stay on this page, website will open very shortly!
+        </a>
+    </div>
+
+    <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+
+
+
+        <div id="preloader">
+
+            <!-- <svg width="0" height="0">
+      <clipPath id="preClip">
+        <path d="M84.4,201.6c-38.7-11.6-66.9-47.5-66.9-90c0-51.9,42.1-94,94-94c2,0,4,0.1,6,0.2c-7.4,6.8-11.6,17.7-11.6,30.6
+            L105.8,175c0,10.4-3.3,18.9-9.2,23.4C93.3,200.9,88.6,202.5,84.4,201.6z M139.6,21.8c-4.4-1.2-9.7,0.4-13.3,3.1
+            c-5.8,4.4-9.2,12.9-9.2,23.4L117,175c0,12.7-4.1,23.6-11.4,30.4c1.9,0.1,3.9,0.2,5.9,0.2c51.9,0,94-42.1,94-94
+            C205.5,69.4,177.8,33.8,139.6,21.8z"/>
+      </clipPath>
+    </svg>
+            <div class="filler">
+                <div class="filler-inner"></div>
+
+            </div>
+            <div class="p-4 text-center">
+                <span class="pre-counter">0</span>%
+            </div> -->
+
+        </div>
+
+
+        <header class="d-flex flex-column ndm-main-header">
+            <nav aria-label="Main Navigation"
+                class="navbar navbar-expand-xl navbar-dark bg-dark fixed-top ndm-main-nav">
+                <div class="container">
+                    <a class="navbar-brand" href="/" aria-label="- logo link">
+                        <div class="ndm-logo-wrap">
+                            <img src="img/logo.png" alt="">
+
+                            <!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 152 35.4" style="enable-background:new 0 0 152 35.4;" xml:space="preserve">
+                        <style type="text/css">
+                          .st0{fill:#00B4BE;}
+                          .st1{fill:#7D7D7D;}
+                        </style>
+            <g>
+              <path class="logo-symbol" d="M12.8,33.5C6,31.4,1,25.1,1,17.7C1,8.6,8.4,1.2,17.5,1.2c0.4,0,0.7,0,1,0c-1.3,1.2-2,3.1-2,5.4l0,22.2
+                                c0,1.8-0.6,3.3-1.6,4.1C14.3,33.4,13.5,33.6,12.8,33.5z M22.4,2c-0.8-0.2-1.7,0.1-2.3,0.6c-1,0.8-1.6,2.3-1.6,4.1l0,22.2
+                                c0,2.2-0.7,4.1-2,5.3c0.3,0,0.7,0,1,0c9.1,0,16.5-7.4,16.5-16.5C34,10.3,29.1,4.1,22.4,2z"/>
+            </g>
+
+            <path class="logo-text" d="M150.4,14.1c-0.4,0.4-0.9,0.6-1.5,0.6c-0.6,0-1.1-0.2-1.5-0.6c-0.4-0.4-0.6-0.9-0.6-1.5c0-0.6,0.2-1.1,0.7-1.6
+                            c0.4-0.4,0.9-0.6,1.5-0.6c0.6,0,1.1,0.2,1.5,0.6c0.4,0.4,0.6,0.9,0.6,1.5C151,13.2,150.8,13.7,150.4,14.1z M147.6,11.4
+                            c-0.3,0.3-0.5,0.8-0.5,1.2c0,0.5,0.2,0.9,0.5,1.3c0.3,0.3,0.8,0.5,1.2,0.5c0.5,0,0.9-0.2,1.2-0.5c0.3-0.3,0.5-0.8,0.5-1.3
+                            c0-0.5-0.2-0.9-0.5-1.2c-0.3-0.4-0.8-0.5-1.2-0.5C148.4,10.8,148,11,147.6,11.4z M148,13.8v-2.4c0.1,0,0.4,0,0.7,0
+                            c0.3,0,0.5,0,0.5,0c0.2,0,0.3,0.1,0.5,0.1c0.2,0.1,0.3,0.3,0.3,0.6c0,0.2-0.1,0.3-0.2,0.4c-0.1,0.1-0.2,0.1-0.4,0.2
+                            c0.1,0,0.3,0.1,0.3,0.1c0.1,0.1,0.2,0.3,0.2,0.5v0.2c0,0,0,0,0,0.1c0,0,0,0,0,0.1l0,0.1h-0.6c0-0.1,0-0.2,0-0.3c0-0.1,0-0.2,0-0.3
+                            c0-0.1-0.1-0.1-0.2-0.2c0,0-0.1,0-0.2,0l-0.1,0h-0.1v0.8H148z M149.1,11.9c-0.1,0-0.2,0-0.4,0h-0.2v0.7h0.2c0.1,0,0.3,0,0.3-0.1
+                            s0.1-0.2,0.1-0.3C149.3,12,149.2,11.9,149.1,11.9z M80.3,10.5c-4,0-7.2,3.2-7.2,7.2v6.5c0,0.4,0.3,0.7,0.7,0.7s0.7-0.3,0.7-0.7v-6.5
+                            c0-3.2,2.6-5.8,5.8-5.8c0.4,0,0.7-0.3,0.7-0.7S80.7,10.5,80.3,10.5z M64,10.5c-3.8,0-5.8,2.1-7,3.7c-0.2,0.3-0.6,0.9-1.1,1.5
+                            c-1.3,1.8-3.4,4.8-4.2,5.6c-1.2,1.2-2.1,2.2-4.7,2.2c-1.5,0-3-0.6-4.1-1.7c-1.1-1.1-1.7-2.5-1.7-4.1c0-1.5,0.6-3,1.7-4.1
+                            c1.1-1.1,2.5-1.7,4.1-1.7s3,0.6,4.1,1.7c0.3,0.3,0.7,0.3,1,0c0.3-0.3,0.3-0.7,0-1c-1.4-1.4-3.2-2.1-5.1-2.1s-3.7,0.8-5.1,2.1
+                            c-1.4,1.4-2.1,3.2-2.1,5.1s0.8,3.7,2.1,5.1c1.4,1.4,3.2,2.1,5.1,2.1c3.1,0,4.5-1.4,5.7-2.6c0.9-0.9,2.9-3.7,4.4-5.8
+                            c0.5-0.7,0.9-1.2,1.1-1.5c1.1-1.4,2.7-3.1,5.8-3.1c1.5,0,3,0.6,4.1,1.7c0.9,0.9,1.5,2.1,1.7,3.4H58.7c-0.4,0-0.7,0.3-0.7,0.7
+                            c0,2.1,0.7,3.8,1.9,5.1c1.4,1.4,3.2,2.1,5.1,2.1c1.9,0,3.7-0.8,5.1-2.1c0.3-0.3,0.3-0.7,0-1c-0.3-0.3-0.7-0.3-1,0
+                            c-1.1,1.1-2.5,1.7-4.1,1.7c-1.5,0-3-0.6-4.1-1.7c-0.9-0.9-1.4-2-1.5-3.4h11.1c0.2,0,0.4-0.1,0.5-0.2c0.1-0.1,0.2-0.3,0.2-0.5
+                            c0-1.9-0.8-3.7-2.1-5.1C67.8,11.2,66,10.5,64,10.5z M143.1,12.6c-1.4-1.4-3.2-2.1-5.1-2.1c-3.8,0-5.8,2.1-7,3.7
+                            c-0.2,0.3-0.6,0.9-1.1,1.5c-1.3,1.8-3.4,4.8-4.2,5.6c-1.2,1.2-2.1,2.2-4.7,2.2c-1.5,0-3-0.6-4.1-1.7c-1.1-1.1-1.7-2.5-1.7-4.1
+                            c0-1.5,0.6-3,1.7-4.1c1.1-1.1,2.5-1.7,4.1-1.7c1.5,0,3,0.6,4.1,1.7c0.3,0.3,0.7,0.3,1,0c0.3-0.3,0.3-0.7,0-1
+                            c-1.4-1.4-3.2-2.1-5.1-2.1c-1.9,0-3.7,0.8-5.1,2.1c-1.4,1.4-2.1,3.2-2.1,5.1s0.8,3.7,2.1,5.1c1.4,1.4,3.2,2.1,5.1,2.1
+                            c3.1,0,4.5-1.4,5.7-2.6c0.9-0.9,2.9-3.7,4.4-5.8c0.5-0.7,0.9-1.2,1.1-1.5c1.1-1.4,2.7-3.1,5.8-3.1c1.5,0,3,0.6,4.1,1.7
+                            c0.9,0.9,1.5,2.1,1.7,3.4h-11.1c-0.4,0-0.7,0.3-0.7,0.7c0,2.1,0.7,3.8,1.9,5.1c1.4,1.4,3.2,2.1,5.1,2.1c1.9,0,3.7-0.8,5.1-2.1
+                            c0.3-0.3,0.3-0.7,0-1c-0.3-0.3-0.7-0.3-1,0c-1.1,1.1-2.5,1.7-4.1,1.7c-1.5,0-3-0.6-4.1-1.7c-0.9-0.9-1.4-2-1.5-3.4h11.1
+                            c0.2,0,0.4-0.1,0.5-0.2c0.1-0.1,0.2-0.3,0.2-0.5C145.2,15.8,144.5,14,143.1,12.6z M104.7,10.5c-4,0-7.2,3.2-7.2,7.2v6.5
+                            c0,0.4,0.3,0.7,0.7,0.7s0.7-0.3,0.7-0.7v-6.5c0-3.2,2.6-5.8,5.8-5.8c3.2,0,5.8,2.6,5.8,5.8v6.5c0,0.4,0.3,0.7,0.7,0.7
+                            s0.7-0.3,0.7-0.7v-6.5C111.9,13.7,108.7,10.5,104.7,10.5z M84.3,13.6c1.1-1.1,2.5-1.7,4.1-1.7c1.5,0,3,0.6,4.1,1.7
+                            c0.9,0.9,1.5,2.1,1.6,3.4H82.7C82.8,15.7,83.4,14.5,84.3,13.6z M89,24.9c1.9,0,4.2-0.8,5.5-2.1c0.3-0.3,0.3-0.7,0-1
+                            c-0.3-0.3-0.7-0.3-1,0c-1.1,1.1-3,1.7-4.5,1.7c-4.4,0-6-2.8-6.3-5.1h12.2c0.4,0,0.7-0.3,0.7-0.7c0-1.9-0.8-3.7-2.1-5.1
+                            c-1.4-1.4-3.2-2.1-5.1-2.1c-1.9,0-3.7,0.8-5.1,2.1s-2.1,3.2-2.1,5.1C81.2,21,83.3,24.9,89,24.9z"/>
+          </svg> -->
+                        </div>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="ms-xl-auto navbar-nav">
+
+                            <li class="nav-item active">
+                                <a href="index.html" target="" rel="" class="nav-link is-active"
+                                    data-drupal-link-system-path="node/5811" style="color: #000;">HOME</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" target="" rel="" class="nav-link"
+                                    data-drupal-link-system-path="node/7771">ABOUT US</a>
+
+
+
+                            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" rel="" target="" id="navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                    aria-label="Stories link">PRODUCTS</a>
+
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+
+
+
+                                    <li>
+                                        <a href="#" target="" rel="" class="dropdown-item"
+                                            data-drupal-link-system-path="node/7376">PLYWOOD</a>
+
+
+
+                                    </li>
+
+
+                                    <li>
+                                        <a href="#" class="dropdown-item"
+                                            data-drupal-link-system-path="node/5826">LAMINATES</a>
+
+
+
+                                    </li>
+
+
+                                    <li>
+                                        <a href="#" target="" rel="" class="dropdown-item"
+                                            data-drupal-link-system-path="node/5871">SHUTTERING</a>
+
+
+
+                                    </li>
+
+
+
+
+
+
+
+                                </ul>
+
+
+
+                            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <li class="nav-item">
+                                <a href="#" target="" rel="" class="nav-link"
+                                    data-drupal-link-system-path="node/7771">GALLERY</a>
+
+
+
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" target="" rel="" class="nav-link"
+                                    data-drupal-link-system-path="node/7771">CONTACT US</a>
+
+
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div
+                class="jumbotron d-flex flex-column flex-grow-1 bg-gradient-1-rev ndm-overlay-1 bg-dark idm-hero-carousel-wrapper landing pb-5 pb-md-0">
+                <div class="flex-grow-1 d-flex flex-column justify-content-end position-relative trans pb-5 pb-md-0">
+                    <div class="ndm-pl-container">
+
+                        <div class="region region-hero-slider">
+                            <div id="block-widgetfaqsv2-7"
+                                class="block--hero-slider block--nir-faq__widget block--nir-faq__widget--5811 block--hero-slider--nir-faq__widget block--hero-slider--nir-faq__widget--5811 block--007da83c-cf51-4e33-a1ee-9600c40ca433 block--007da83c-cf51-4e33-a1ee-9600c40ca433--5811 block block-nir-faq block-nir-faq__widget">
+
+
+                                <div class="nir-widget">
+                                    <div class="nir-widget--content">
+                                        <div class="nir-widget--list">
+
+                                            <article role="article"
+                                                class="clearfix node node--nir-faq--nir-faq-widget-list-accordion node--type-nir-faq node--view-mode-nir-faq-widget-list-accordion">
+
+
+
+
+
+                                                <div class="row gx-0">
+                                                    <div class="col-1 position-relative mt-n5">
+                                                        <div class="data-carousel-progress">
+                                                            <span class="progress-indicator"></span>
+                                                            <span class="progress-level"></span>
+                                                        </div>
+                                                        <!-- <div class="carousel-num currentPosition">01</div> -->
+                                                    </div>
+                                                    <div class="col-11">
+                                                        <div class="ndm-pr-container">
+                                                            <div class="row justify-content-between">
+                                                                <div class="col-md-9 col-xl-8">
+                                                                    <div
+                                                                        class="idm-hero-carousel owl-carousel owl-theme">
+
+                                                                        <div class="item" data-alt=""
+                                                                            data-entity-type="file"
+                                                                            data-entity-uuid="2c4b9b0c-ae83-4635-bfd1-6d41805fcb61"
+                                                                            data-hash=""
+                                                                            data-src="img/slider1.jpg" 
+                                                                            data-sub-title=""
+                                                                            data-title="PREMIUM QUALITY LAMINATES">
+
+                                                                            <h2>WELCOME HOME TO <span> BLACK COBRA. WE ARE THE NO. 1 LAMINATES MAKER IN THE COUNTRY</span></h2>
+
+
+
+
+                                                                            <a aria-label="button Learn more"
+                                                                                class="btn btn-lg btn-primary"
+                                                                                href="#" style="background-color: rgb(226, 44, 44);">KNOW MORE</a>
+                                                                        </div>
+                                                                        <div class="item"
+                                                                            data-alt=""
+                                                                            data-entity-type="file"
+                                                                            data-entity-uuid="22fc6d9a-613f-49b9-a3cf-c968afa77a55"
+                                                                            data-hash=""
+                                                                            data-src="img/slider2.jpg"
+                                                                            data-sub-title=""
+                                                                            data-title="BEST BUILD QUALITY">
+                                                                            <h2>WELCOME HOME TO <span> BLACK COBRA. WE ARE THE NO. 1 LAMINATES MAKER IN THE COUNTRY</span></h2>
+
+
+                                                                            
+
+
+                                                                            <a aria-label="button Learn more"
+                                                                                class="btn btn-lg btn-primary"
+                                                                                href="#" style="background-color: rgb(226, 44, 44);">KNOW MORE</a>
+                                                                        </div>
+                                                                        <div class="item" data-alt=""
+                                                                            data-entity-type="file"
+                                                                            data-entity-uuid="97e571c9-dfe1-44a3-9fcb-af937d0a118d"
+                                                                            data-hash=""
+                                                                            data-src="img/slider3.jpg"
+                                                                            data-sub-title=""
+                                                                            data-title="BEST-IN-CLASS PLYWOOD PRODUCTS">
+                                                                            <!-- <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus voluptas molestias</h1> -->
+
+                                                                            <!-- <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea impedit, modi dolores quis fuga voluptatem?</h1> -->
+
+                                                                            <h2>WELCOME HOME TO <span> BLACK COBRA. WE ARE THE NO. 1 LAMINATES MAKER IN THE COUNTRY</span></h2>
+
+
+                                                                            
+
+
+                                                                            <a aria-label="button Learn more"
+                                                                                class="btn btn-lg btn-primary"
+                                                                                href="" style="background-color: rgb(226, 44, 44);">KNOW MORE</a>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-3 text-md-end mt-4">
+                                                                    <a href="#" class="pause-carousel"
+                                                                        aria-label="pause carousel btn">
+                                                                        <i aria-hidden="true"
+                                                                            class="far fa-pause-circle fa-lg"><span
+                                                                                class="sr-only">pause carousel
+                                                                                icon</span></i>
+                                                                        <span class="visually-hidden">Pause
+                                                                            Carousel</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </article>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row gx-0 d-none d-md-block">
+                            <div class="col-11 offset-1">
+                                <div class="row gx-0 align-items-end justify-content-end">
+
+                                    <div class="col-lg-9">
+                                        <ul class="idm-carousel-nav bg-blur mt-5 bg-gradient-2-rev">
+                                            <!--items for slider appended via ndm-functions.js-->
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-lg-3 d-none d-lg-block">
+                                        <div class="region region-hero-extra">
+                                            <div id="block-widgetassetsv2-2"
+                                                class="block--modal-video block--nir-assets__widget block--nir-assets__widget--5811 block--hero-extra--nir-assets__widget block--hero-extra--nir-assets__widget--5811 block--46619357-c22d-4e68-ac15-74e47c03c958 block--46619357-c22d-4e68-ac15-74e47c03c958--5811 block block-nir-assets block-nir-assets__widget">
+
+
+                                                <div class="nir-widget">
+                                                    <div class="nir-widget--content">
+                                                        <div class="nir-widget--list">
+                                                            <div class="h-100 d-flex flex-column justify-content-end">
+
+
+                                                                <a aria-label="Hero video"
+                                                                    href="./img/slider-video.mp4"
+                                                                    data-bs-toggle="modal" data-bs-target="#videoModal"
+                                                                    class="ndm-video-link">
+
+
+
+                                                                    <div class="field-nir-thumbnail" >
+                                                                        <div class="field__item"><img
+                                                                                src="./img/slider-video.png"
+                                                                                alt="Hero video thumb"
+                                                                                class="image-style-nir-asset-small" / >
+
+                                                                        </div>
+                                                                    </div>
+
+
+
+
+
+
+                                                                    <div class="small ndm-learn-more">
+
+                                                                    </div>
+
+                                                                </a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </header>
+
+
+
+        <main>
+
+
+            <section class="py-5 px-md-0" style="padding-top:150px;">
+                <div class="ndm-pl-container">
+                    <div class="row gx-0">
+                        <div class="col-md-6 col-xl-5 mb-5 mb-md-0">
+                            <div class="block-region-column3">
+                                <div class="block-content--nir-lp-block block-content--nir-lp-block--8366 block--block-content3521e307-d20b-456b-b4b3-eeac1806f6e1 block--block-content3521e307-d20b-456b-b4b3-eeac1806f6e1--7771 block--column3--block-content--3521e307-d20b-456b-b4b3-eeac1806f6e1 block--column3--block-content--3521e307-d20b-456b-b4b3-eeac1806f6e1--7771 block--ea13431d-94e0-4c70-bc44-139854617d42 block--ea13431d-94e0-4c70-bc44-139854617d42--7771 block block-block-content block-block-content3521e307-d20b-456b-b4b3-eeac1806f6e1">
+
+
+
+                                    <div class="field field--name-field-nir-lp-block-node field--type-entity-reference field--label-hidden field__item">
+                                        <div class="field field--name-field-nir-lp-block-body field--type-text-long field--label-hidden field__item">
+                                            <h2 style="margin-bottom: 5px;">Welcome to Black Cobra</h2>
+
+                                            <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum unde, repudiandae possimus enim neque fugiat! Cupiditate corporis consequuntur voluptatum, fugiat dignissimos laboriosam expedita assumenda quas! Aliquid porro iure corporis quos corrupti impedit hic, autem suscipit esse libero vel veritatis cum perspiciatis praesentium commodi error deserunt? Assumenda unde perspiciatis ad veniam.</p>
+
+                                            <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, debitis quia! Quisquam reprehenderit, eligendi nostrum modi eaque tempore eius hic molestias natus non, amet dolorem repellendus deserunt quam eum cum.</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-7 ndm-pl-md-10 ndm-pl-lg-15">
+                            <div class="careers-collage">
+                                <div class="block-region-secondarycolumn1">
+                                    <div class="block-content--nir-lp-block block-content--nir-lp-block--12001 block--block-content8b2f7192-9b5d-4cae-903c-1f2674cb1095 block--block-content8b2f7192-9b5d-4cae-903c-1f2674cb1095--7771 block--secondarycolumn1--block-content--8b2f7192-9b5d-4cae-903c-1f2674cb1095 block--secondarycolumn1--block-content--8b2f7192-9b5d-4cae-903c-1f2674cb1095--7771 block--80d34d8d-9a44-4d1a-b54c-99f0efb22803 block--80d34d8d-9a44-4d1a-b54c-99f0efb22803--7771 block block-block-content block-block-content8b2f7192-9b5d-4cae-903c-1f2674cb1095">
+
+
+
+                                        <div class="field field--name-field-nir-lp-block-node field--type-entity-reference field--label-hidden field__item">
+                                            <div class="field field--name-field-nir-lp-block-body field--type-text-long field--label-hidden field__item">
+                                                <p><img alt="image  of Cerence Culture" data-entity-type="file" data-entity-uuid="d95356cc-fd93-47b8-97bb-3abfc68a0345" src="img/hero-img1.jpg"
+                                                    /></p>
+
+                                                <p><img alt="image  of Cerence Culture" data-entity-type="file" data-entity-uuid="572d53eb-face-44f1-a959-d4741646ae7c" src="img/hero-img2.jpg"
+                                                    /></p>
+
+                                                <p><img alt="Cerence Cultiue Image 3" data-entity-type="file" data-entity-uuid="bed697ff-5b2b-4f7b-9a35-c7b4b3ba4454" src="img/hero-img3.webp"
+                                                    /><img alt="Cerence Cultiue Image 4" data-entity-type="file" data-entity-uuid="e284943b-3561-42cb-a530-a7ed6f8f171c" src="img/hero-img4.jpg"
+                                                    /></p>
+
+                                                <p><img alt="Cerence Cultiue Image 5" data-entity-type="file" data-entity-uuid="678a0d4a-71e2-4933-b3f9-27132c232cbf" src="img/hero-img5.jpg"
+                                                    /></p>
+
+                                                <p><img alt="Cerence Cultiue Image 3" data-entity-type="file" data-entity-uuid="d851263f-56c7-4316-b3af-70c185b92238" src="img/hero-img6.jpg"
+                                                    /></p>
+
+                                                <p><img alt="Cerence Cultiue Image 7" data-entity-type="file" data-entity-uuid="a2081d19-5444-4001-8e05-30535a21e6a4" src="img/hero-img7.jpg"
+                                                    /></p>
+
+                                                <p><img alt="Cerence Cultiue Image 8" data-entity-type="file" data-entity-uuid="a8759ce4-ee4f-4f28-a6d5-8f8e0bd3b5c6" src="img/hero-img8.jpg"
+                                                    /></p>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row gx-0">
+                                <div class="col-6 pb-4 pb-lg-0">
+                                    <div class="ndm-ml-lg-n5 ndm-pr-lg-5">
+                                        <div class="careers-collage-0 careers-img-carousel owl-carousel owl-theme">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 pb-4 pb-lg-0">
+                                    <div class="my-lg-5 ">
+                                        <div class="careers-collage-1 careers-img-carousel owl-carousel owl-theme">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 pb-4 pb-lg-0">
+                                    <div class="ndm-ml-lg-n8 ndm-pr-lg-8 ndm-mt-lg-n5">
+                                        <div class="careers-collage-2 careers-img-carousel owl-carousel owl-theme">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 pb-4 pb-lg-0">
+                                    <div class="ndm-ml-lg-n5 ndm-pr-lg-5">
+                                        <div class="careers-collage-3 careers-img-carousel owl-carousel owl-theme">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+            <section class="px-0">
+                <div>
+                    <div id="ndq-content" class="ndq-5811 clearfix">
+                        <div class="region region-content">
+                            <div id="block-nir-pid3429-websitenoticeblock"
+                                class="block--website-notice-block block--website-notice-block--5811 block--content--website-notice-block block--content--website-notice-block--5811 block--d9a46a9f-e6a5-44a2-9617-3eb1666fa45a block--d9a46a9f-e6a5-44a2-9617-3eb1666fa45a--5811 block block-nir-website-notices block-website-notice-block">
+
+
+
+                            </div>
+                            <div data-drupal-messages-fallback class="hidden"></div>
+                            <div id="block-nir-pid3429-content"
+                                class="block--system-main-block block--system-main-block--5811 block--content--system-main-block block--content--system-main-block--5811 block--5a91384a-b57f-40fd-8983-ced69e718036 block--5a91384a-b57f-40fd-8983-ced69e718036--5811 block block-system block-system-main-block">
+
+
+                                <article class="node node--type-nir_landing_page node--view-mode-full clearfix">
+
+                                    <h1>
+                                        -
+                                    </h1>
+
+
+                                    <div>
+
+                                        <div class="panel-display pond clearfix " style="padding-top: 50px;">
+
+                                            <div class="container-fluid">
+
+
+                                               
+
+
+                                                <section class="p-0 pt-5">
+                                                    <div class="block-region-column1">
+                                                        <div class="block-content--nir-lp-block block-content--nir-lp-block--7251 block--block-content3eaf8678-e913-4814-b765-b332452e6bbf block--block-content3eaf8678-e913-4814-b765-b332452e6bbf--7231 block--column1--block-content--3eaf8678-e913-4814-b765-b332452e6bbf block--column1--block-content--3eaf8678-e913-4814-b765-b332452e6bbf--7231 block--1c8b2afd-7455-47d5-b651-5f3539028601 block--1c8b2afd-7455-47d5-b651-5f3539028601--7231 block block-block-content block-block-content3eaf8678-e913-4814-b765-b332452e6bbf">
+
+
+
+                                                            <div class="field field--name-field-nir-lp-block-node field--type-entity-reference field--label-hidden field__item">
+                                                                <div class="field field--name-field-nir-lp-block-body field--type-text-long field--label-hidden field__item">
+                                                                    <div><a aria-label="corporate video" class="d-block src-bg min-vh-ratio ndm-video-link" data-bs-target="#videoModal" data-bs-toggle="modal" href="img/popup-video1.mp4"><img alt="we are cerence image" data-entity-type="file" data-entity-uuid="7f07fd37-f2b3-4b20-a290-6e875193ecd5" src="img/imgg.png" /></a></div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+
+
+                                                <section class="products-trigger" style="padding-top: 100px;">
+                                                    <div class="container py-5">
+                                                        <div class="py-3">
+                                                            <div class="block-region-column2">
+                                                                <div
+                                                                    class="block-content--nir-lp-block block-content--nir-lp-block--9696 block--block-content4cdfbf37-2072-4c52-ab64-0fd51481a3c8 block--block-content4cdfbf37-2072-4c52-ab64-0fd51481a3c8--5811 block--column2--block-content--4cdfbf37-2072-4c52-ab64-0fd51481a3c8 block--column2--block-content--4cdfbf37-2072-4c52-ab64-0fd51481a3c8--5811 block--8a43a7f1-257f-4928-bd7e-094be48e4c2b block--8a43a7f1-257f-4928-bd7e-094be48e4c2b--5811 block block-block-content block-block-content4cdfbf37-2072-4c52-ab64-0fd51481a3c8">
+
+
+
+                                                                    <div
+                                                                        class="field field--name-field-nir-lp-block-node field--type-entity-reference field--label-hidden field__item">
+                                                                        <div
+                                                                            class="field field--name-field-nir-lp-block-body field--type-text-long field--label-hidden field__item">
+                                                                            <h2 class="text-center mb-5">Our Products
+                                                                            </h2>
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+
+
+
+
+
+                                                                <div class="row">
+                                                                    <div
+                                                                        class="col-md-8 col-lg-7 overflow-hidden products-suppressor py-5 ndm-fadeout-top ndm-fadeout-bottom">
+                                                                        <div class="products-wrapper">
+
+
+                                                                            <div class="product-item">
+                                                                                <div
+                                                                                    class="row justify-content-between pt-4 pb-5">
+                                                                                    <div class="col-lg-6">
+                                                                                        <div class="product-title">
+                                                                                            <div>
+                                                                                                <img src="img/hand.png"
+                                                                                                    alt="">
+                                                                                            </div>
+                                                                                            <h3 class="h5">PLYWOOD</h3>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="col-lg-6 product-description">
+
+                                                                                        <img src="img/img1.jpg" alt="">
+                                                                                        
+
+                                                                                        
+
+                                                                                            <a aria-label="button Learn more"
+                                                                                            class="btn btn-sm btn-primary"
+                                                                                            href="#" style="margin-top: 10px;">CLICK HERE</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            <div class="product-item">
+                                                                                <div
+                                                                                    class="row justify-content-between pt-4 pb-5">
+                                                                                    <div class="col-lg-6">
+                                                                                        <div class="product-title">
+                                                                                            <div>
+                                                                                                <img src="img/hand.png"
+                                                                                                    alt="">
+                                                                                            </div>
+                                                                                            <h3 class="h5">LAMINATES</h3>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="col-lg-6 product-description">
+
+                                                                                        <img src="img/img2.jpg" alt="">
+                                                                                        
+
+                                                                                        
+
+                                                                                            <a aria-label="button Learn more"
+                                                                                            class="btn btn-sm btn-primary"
+                                                                                            href="#" style="margin-top: 10px;">CLICK HERE</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="product-item">
+                                                                                <div
+                                                                                    class="row justify-content-between pt-4 pb-5">
+                                                                                    <div class="col-lg-6">
+                                                                                        <div class="product-title">
+                                                                                            <div>
+                                                                                                <img src="img/hand.png"
+                                                                                                    alt="">
+                                                                                            </div>
+                                                                                            <h3 class="h5">SHUTTERING</h3>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="col-lg-6 product-description">
+
+                                                                                        <img src="img/img3.jpg" alt="">
+                                                                                        
+
+                                                                                        
+
+                                                                                            <a aria-label="button Learn more"
+                                                                                            class="btn btn-sm btn-primary"
+                                                                                            href="#" style="margin-top: 10px;">CLICK HERE</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="product-item">
+                                                                                <div
+                                                                                    class="row justify-content-between pt-4 pb-5">
+                                                                                    <div class="col-lg-6">
+                                                                                        <div class="product-title">
+                                                                                            <div>
+                                                                                                <img src="img/hand.png"
+                                                                                                    alt="">
+                                                                                            </div>
+                                                                                            <h3 class="h5">PVC LAMINATES</h3>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="col-lg-6 product-description">
+
+                                                                                        <img src="img/img4.jpg" alt="">
+                                                                                        
+
+                                                                                        
+
+                                                                                            <a aria-label="button Learn more"
+                                                                                            class="btn btn-sm btn-primary"
+                                                                                            href="#" style="margin-top: 10px;">CLICK HERE</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-4 offset-lg-1">
+                                                                        <svg version="1.1"
+                                                                            xmlns="http://www.w3.org/2000/svg" x="0px"
+                                                                            y="0px" viewBox="0 0 402 400"
+                                                                            style="enable-background:new 0 0 402 400;"
+                                                                            xml:space="preserve">
+                                                                            <g id="dot-to-dot">
+                                                                                <g id="line-wrapper">
+                                                                                    <polyline class="st2"
+                                                                                        points="81,80 161,160 161,240 241,240 241,160 321,160 		" />
+                                                                                    <rect x="81" y="80" class="st2"
+                                                                                        width="240" height="240" />
+                                                                                </g>
+                                                                            </g>
+                                                                            <g id="circle-grid">
+                                                                                <g id="outerCircles">
+                                                                                    <g id="circs">
+                                                                                        <g id="pulse-1">
+                                                                                            <circle
+                                                                                                class="pulse_x002D_1"
+                                                                                                cx="81" cy="80"
+                                                                                                r="6.3" />
+                                                                                        </g>
+                                                                                        <g>
+                                                                                            <g>
+                                                                                                <circle class="st2"
+                                                                                                    cx="321" cy="160"
+                                                                                                    r="6.3" />
+                                                                                            </g>
+                                                                                            <g>
+                                                                                                <circle class="st2"
+                                                                                                    cx="321" cy="240"
+                                                                                                    r="6.3" />
+                                                                                            </g>
+                                                                                            <g>
+                                                                                                <g>
+                                                                                                    <circle
+                                                                                                        class="st2 pulse-fill"
+                                                                                                        cx="81" cy="80"
+                                                                                                        r="6.3" />
+                                                                                                </g>
+                                                                                                <g>
+                                                                                                    <circle class="st2"
+                                                                                                        cx="161" cy="80"
+                                                                                                        r="6.3" />
+                                                                                                </g>
+                                                                                                <g>
+                                                                                                    <circle class="st2"
+                                                                                                        cx="241" cy="80"
+                                                                                                        r="6.3" />
+                                                                                                </g>
+                                                                                                <g>
+                                                                                                    <circle class="st2"
+                                                                                                        cx="81" cy="160"
+                                                                                                        r="6.3" />
+                                                                                                </g>
+                                                                                                <g>
+                                                                                                    <circle class="st2"
+                                                                                                        cx="81" cy="240"
+                                                                                                        r="6.3" />
+                                                                                                </g>
+                                                                                                <g>
+                                                                                                    <circle class="st2"
+                                                                                                        cx="161"
+                                                                                                        cy="320"
+                                                                                                        r="6.3" />
+                                                                                                </g>
+                                                                                                <g>
+                                                                                                    <circle class="st2"
+                                                                                                        cx="241"
+                                                                                                        cy="320"
+                                                                                                        r="6.3" />
+                                                                                                </g>
+                                                                                                <g>
+                                                                                                    <circle class="st2"
+                                                                                                        cx="321"
+                                                                                                        cy="320"
+                                                                                                        r="6.3" />
+                                                                                                </g>
+                                                                                            </g>
+                                                                                        </g>
+                                                                                    </g>
+                                                                                    <rect x="57.5" y="56.5" class="st2"
+                                                                                        width="287" height="287" />
+                                                                                </g>
+                                                                                <g id="innerCircles">
+                                                                                    <g id="innerCircs">
+                                                                                        <g>
+                                                                                            <circle class="st2" cx="161"
+                                                                                                cy="160" r="6.3" />
+                                                                                        </g>
+                                                                                        <g>
+                                                                                            <circle class="st2 "
+                                                                                                cx="241" cy="160"
+                                                                                                r="6.3" />
+                                                                                        </g>
+                                                                                        <g>
+                                                                                            <circle
+                                                                                                class="st2 pulse-fill"
+                                                                                                cx="161" cy="240"
+                                                                                                r="6.3" />
+                                                                                        </g>
+                                                                                        <g id="pulse-2">
+                                                                                            <circle
+                                                                                                class="pulse_x002D_2"
+                                                                                                cx="161" cy="240"
+                                                                                                r="6.3" />
+                                                                                        </g>
+                                                                                        <g>
+                                                                                            <circle class="st2" cx="241"
+                                                                                                cy="240" r="6.3" />
+                                                                                        </g>
+                                                                                    </g>
+                                                                                    <rect x="141.5" y="140.5"
+                                                                                        class="st2" width="119"
+                                                                                        height="119" />
+                                                                                </g>
+                                                                            </g>
+                                                                            <g id="ring">
+                                                                                <path class="circ1"
+                                                                                    d="M336.5,200c0,74.8-60.7,135.5-135.5,135.5S65.5,274.8,65.5,200S126.2,64.5,201,64.5S336.5,125.2,336.5,200z" />
+                                                                            </g>
+                                                                            <g id="short-sound">
+                                                                                <line id="line2a"
+                                                                                    class="sound_x002D_line" x1="163.5"
+                                                                                    y1="190.5" x2="163.5" y2="209.5" />
+                                                                                <line id="line2b"
+                                                                                    class="sound_x002D_line" x1="213.5"
+                                                                                    y1="190.5" x2="213.5" y2="209.5" />
+                                                                                <line id="line2c"
+                                                                                    class="sound_x002D_line" x1="263.5"
+                                                                                    y1="190.5" x2="263.5" y2="209.5" />
+                                                                            </g>
+                                                                            <g id="long-sound">
+                                                                                <line id="line1a"
+                                                                                    class="sound_x002D_line" x1="138.5"
+                                                                                    y1="180.5" x2="138.5" y2="219.5" />
+                                                                                <line id="line1b"
+                                                                                    class="sound_x002D_line" x1="188.5"
+                                                                                    y1="180.5" x2="188.5" y2="219.5" />
+                                                                                <line id="line1c"
+                                                                                    class="sound_x002D_line" x1="238.5"
+                                                                                    y1="180.5" x2="238.5" y2="219.5" />
+                                                                            </g>
+                                                                        </svg>
+
+                                                                    </div>
+                                                                </div>
+
+
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+                                               
+
+
+
+                                                <section class="py-5 mt-5">
+                                                    <div class="container py-3">
+                                                        <div class="block-region-column3">
+                                                            <div
+                                                                class="block--news-cards block--nir-news__widget block--nir-news__widget--5811 block--column3--nir-news__widget block--column3--nir-news__widget--5811 block--fad18877-ea03-42d2-b56d-5769b667c3a3 block--fad18877-ea03-42d2-b56d-5769b667c3a3--5811 block block-nir-news block-nir-news__widget">
+
+
+                                                                <!-- <div class="nir-widget">
+                                                                    <h2>
+                                                                        Press Releases
+                                                                    </h2>
+                                                                    <div class="nir-widget--content">
+                                                                        <div class="nir-widget--list">
+                                                                            <div
+                                                                                class="row gx-md-3 ndm-article-list boxes">
+
+                                                                                <article class="col-md-4 mb-3">
+
+                                                                                    <a href="/news-releases/news-release-details/--announce-fiscal-third-quarter-results-august-9-2022"
+                                                                                        class="d-flex flex-column h-100"
+                                                                                        aria-label="link">
+                                                                                        <div class="ndm-category small">
+                                                                                            Press Release</div>
+
+
+
+
+                                                                                        <div class="ndm-title">
+                                                                                            - to Announce Fiscal
+                                                                                            Third Quarter Results on
+                                                                                            August 9, 2022
+                                                                                        </div>
+
+
+
+
+
+
+
+
+                                                                                        <div class="pt-4 mt-auto">
+                                                                                            <div
+                                                                                                class="row justify-content-between">
+                                                                                                <div class="col-6">
+                                                                                                    <div
+                                                                                                        class="ndm-learn-more d-inline-block small">
+                                                                                                        Learn More</div>
+                                                                                                </div>
+                                                                                                <div class="col-6">
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </article>
+
+                                                                                <article class="col-md-4 mb-3">
+
+                                                                                    <a href="/news-releases/news-release-details/--and-cerebrumx-collaborate-build-ai-powered-advanced"
+                                                                                        class="d-flex flex-column h-100"
+                                                                                        aria-label="link">
+                                                                                        <div class="ndm-category small">
+                                                                                            Press Release</div>
+
+
+
+
+                                                                                        <div class="ndm-title">
+                                                                                            - and CerebrumX
+                                                                                            Collaborate to Build
+                                                                                            AI-Powered Advanced Platform
+                                                                                            for Connected Vehicle Data
+                                                                                            Using Amazon Web Services
+                                                                                            (AWS)
+                                                                                        </div>
+
+
+
+
+
+
+
+
+                                                                                        <div class="pt-4 mt-auto">
+                                                                                            <div
+                                                                                                class="row justify-content-between">
+                                                                                                <div class="col-6">
+                                                                                                    <div
+                                                                                                        class="ndm-learn-more d-inline-block small">
+                                                                                                        Learn More</div>
+                                                                                                </div>
+                                                                                                <div class="col-6">
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </article>
+
+                                                                                <article class="col-md-4 mb-3">
+
+                                                                                    <a href="/news-releases/news-release-details/--joins-mih-consortium-advance-future-mobility"
+                                                                                        class="d-flex flex-column h-100"
+                                                                                        aria-label="link">
+                                                                                        <div class="ndm-category small">
+                                                                                            Press Release</div>
+
+
+
+
+                                                                                        <div class="ndm-title">
+                                                                                            - Joins MIH Consortium
+                                                                                            to Advance Future of
+                                                                                            Mobility
+                                                                                        </div>
+
+
+
+
+
+
+
+
+                                                                                        <div class="pt-4 mt-auto">
+                                                                                            <div
+                                                                                                class="row justify-content-between">
+                                                                                                <div class="col-6">
+                                                                                                    <div
+                                                                                                        class="ndm-learn-more d-inline-block small">
+                                                                                                        Learn More</div>
+                                                                                                </div>
+                                                                                                <div class="col-6">
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </article>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="nir-widget--pager">
+
+                                                                        </div>
+                                                                        <div class="nir-widget--total-results">
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div> -->
+                                                            </div>
+
+
+
+
+
+
+                                                            <!-- <div class="text-md-end mt-5">
+
+                                                                <a href="/--stories/press-releases"
+                                                                    class="ndm-view-all"
+                                                                    data-drupal-link-system-path="node/5816">View All
+                                                                    Press Releases</a>
+
+
+                                                            </div> -->
+
+
+
+
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+                                                <section class="py-5 bg-gradient-1 bg-dark">
+                                                    <div class="py-5 text-center">
+                                                        <div class="block-region-column3">
+                                                            <div class="block--logo-slider-inft block--nir-assets__widget block--nir-assets__widget--7231 block--column3--nir-assets__widget block--column3--nir-assets__widget--7231 block--8674ee55-fb07-4fee-9d57-a0ea71ecbc9f block--8674ee55-fb07-4fee-9d57-a0ea71ecbc9f--7231 block block-nir-assets block-nir-assets__widget">
+
+
+                                                                <div class="nir-widget">
+                                                                    
+                                                                    <h2 class="mb-4" style="padding-top: 17px;">
+                                                                       Have a look at our premium PVC Laminates
+                                                                    </h2>
+                                                                   
+                                                                    <div class="nir-widget--content">
+                                                                        <div class="nir-widget--list">
+                                                                            <div id="" class="overflow-hidden">
+                                                                                <div class="d-flex flex-nowrap marquee-logos" id="marqu">
+
+
+                                                                                    <div class="marquee-image">
+
+                                                                                        <div class="field-nir-thumbnail">
+                                                                                            <div class="field__item"><img src="img/lam1.jpg" alt="BMW" class="image-style-nir-asset-small"
+                                                                                                />
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                    <div class="marquee-image">
+
+                                                                                        <div class="field-nir-thumbnail">
+                                                                                            <div class="field__item"><img src="img/lam2.jpg" alt="SAIC" class="image-style-nir-asset-small"
+                                                                                                />
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                    <div class="marquee-image">
+
+                                                                                        <div class="field-nir-thumbnail">
+                                                                                            <div class="field__item"><img src="img/lam3.jpg" alt="Toyota" class="image-style-nir-asset-small"
+                                                                                                />
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                    <div class="marquee-image">
+
+                                                                                        <div class="field-nir-thumbnail">
+                                                                                            <div class="field__item"><img src="img/lam4.jpg" alt="Hyundai" class="image-style-nir-asset-small"
+                                                                                                />
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                    <div class="marquee-image">
+
+                                                                                        <div class="field-nir-thumbnail">
+                                                                                            <div class="field__item"><img src="img/lam5.jpg" alt="Volkswagen"
+                                                                                                    class="image-style-nir-asset-small" />
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                    <div class="marquee-image">
+
+                                                                                        <div class="field-nir-thumbnail">
+                                                                                            <div class="field__item"><img src="img/lam6.jpg" alt="Stellantis"
+                                                                                                    class="image-style-nir-asset-small" />
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                    <div class="marquee-image">
+
+                                                                                        <div class="field-nir-thumbnail">
+                                                                                            <div class="field__item"><img src="img/lam6.jpg" alt="Honda" class="image-style-nir-asset-small"
+                                                                                                />
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                    <div class="marquee-image">
+
+                                                                                        <div class="field-nir-thumbnail">
+                                                                                            <div class="field__item"><img src="img/lam7.jpg" alt="GMC" class="image-style-nir-asset-small"
+                                                                                                />
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                    <div class="marquee-image">
+
+                                                                                        <div class="field-nir-thumbnail">
+                                                                                            <div class="field__item"><img src="img/lam8.jpg" alt="Ford" class="image-style-nir-asset-small"
+                                                                                                />
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                    <div class="marquee-image">
+
+                                                                                        <div class="field-nir-thumbnail">
+                                                                                            <div class="field__item"><img src="img/lam9.jpg" alt="Geely" class="image-style-nir-asset-small"
+                                                                                                />
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                    <div class="marquee-image">
+
+                                                                                        <div class="field-nir-thumbnail">
+                                                                                            <div class="field__item"><img src="img/lam10.jpg" alt="Mercedes Benz"
+                                                                                                    class="image-style-nir-asset-small" />
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+
+
+                                               
+
+
+                                              
+
+
+
+                                                <section class="py-5" style="padding-top: 30px;">
+                                                    <div class="container pt-5">
+                                                        <div class="block-region-secondarycolumn2">
+                                                            <div
+                                                                class="block--news-h-accordion block--nir-news__widget block--nir-news__widget--5811 block--secondarycolumn2--nir-news__widget block--secondarycolumn2--nir-news__widget--5811 block--7a00db7e-dfb1-4c9b-b9c2-6b87c5bd4d07 block--7a00db7e-dfb1-4c9b-b9c2-6b87c5bd4d07--5811 block block-nir-news block-nir-news__widget">
+
+
+                                                                <div class="nir-widget">
+                                                                    <h2>
+                                                                        Blogs written on- Black Cobra laminates
+                                                                    </h2>
+                                                                    <div class="nir-widget--content">
+                                                                        <div class="nir-widget--list">
+                                                                            <div class="ndm-blog">
+
+                                                                                <article>
+                                                                                    <a href="#"
+                                                                                        class="d-flex flex-column h-100"
+                                                                                        aria-label="link">
+
+                                                                                        <div class="blog-data">
+
+                                                                                            <time class="small">
+                                                                                                AUGUST,03,2022
+                                                                                            </time>
+
+                                                                                            <div class="ndm-title">
+                                                                                               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat, repudiandae?
+                                                                                            </div>
+
+                                                                                            <div class="ndm-summary">
+                                                                                               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, impedit.
+                                                                                            </div>
+
+
+
+
+
+
+                                                                                        </div>
+
+
+                                                                                        <div class="pt-5 mt-auto">
+                                                                                            <div class="ndm-blog-img">
+                                                                                                <img src="img/blog-pic.jpg"
+                                                                                                    alt="Simulator"
+                                                                                                    class="image-style-nir-asset-small" />
+
+
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        
+                                                                                    </a>
+                                                                                </article>
+
+                                                                                <article>
+                                                                                    <a href="#"
+                                                                                        class="d-flex flex-column h-100"
+                                                                                        aria-label="link">
+
+                                                                                        <div class="blog-data">
+
+                                                                                            <time class="small">
+                                                                                                AUGUST 03, 2022
+                                                                                            </time>
+
+                                                                                            <div class="ndm-title">
+                                                                                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, iusto.
+                                                                                            </div>
+
+                                                                                            <div class="ndm-summary">
+                                                                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, eligendi.
+                                                                                            </div>
+
+
+
+
+
+
+                                                                                        </div>
+
+
+                                                                                        <div class="pt-5 mt-auto">
+                                                                                            <div class="ndm-blog-img">
+                                                                                                <img src="img/blog2.jpg"
+                                                                                                    alt="CTC"
+                                                                                                    class="image-style-nir-asset-small" />
+
+
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                       
+                                                                                    </a>
+                                                                                </article>
+
+                                                                                <article>
+                                                                                    <a href="#"
+                                                                                        class="d-flex flex-column h-100"
+                                                                                        aria-label="link">
+
+                                                                                        <div class="blog-data">
+
+                                                                                            <time class="small">
+                                                                                                AUGUST 03, 2022
+                                                                                            </time>
+
+                                                                                            <div class="ndm-title">
+                                                                                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, necessitatibus.
+                                                                                            </div>
+
+                                                                                            <div class="ndm-summary">
+                                                                                               Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, fuga?
+                                                                                            </div>
+
+
+
+
+
+
+                                                                                        </div>
+
+
+                                                                                        <div class="pt-5 mt-auto">
+                                                                                            <div class="ndm-blog-img">
+                                                                                                <img src="img/blog3.webp"
+                                                                                                    alt="SAE"
+                                                                                                    class="image-style-nir-asset-small" />
+
+
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        
+                                                                                    </a>
+                                                                                </article>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="nir-widget--pager">
+
+                                                                        </div>
+                                                                        <div class="nir-widget--total-results">
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+
+
+
+
+                                                            
+
+
+
+
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+
+
+                                                <section class="py-5 bg-gradient-1 bg-dark" style="margin-top: 100px;">
+                                                    <div class="container py-3">
+                                                        <div class="block-region-secondarycolumn1">
+                                                            <div
+                                                                class="block--ast-slider block--nir-assets__widget block--nir-assets__widget--5811 block--secondarycolumn1--nir-assets__widget block--secondarycolumn1--nir-assets__widget--5811 block--7c7e91be-5e80-47c4-ba4e-bdae84a6e903 block--7c7e91be-5e80-47c4-ba4e-bdae84a6e903--5811 block block-nir-assets block-nir-assets__widget">
+
+
+                                                                <div class="nir-widget">
+                                                                    <h2>
+                                                                       Our Customer Testimonials
+                                                                    </h2>
+                                                                    <div class="nir-widget--content">
+                                                                        <div class="nir-widget--list">
+                                                                            <div
+                                                                                class="ndm-article-list boxes stories ndm-article-carousel owl-carousel owl-theme">
+
+                                                                                <article class="mb-4 mb-md-0">
+
+                                                                                    <a href="#"
+                                                                                        class="d-flex flex-column h-100"
+                                                                                        target="_blank"
+                                                                                        aria-label="link">
+                                                                                        <div class="row h-100">
+                                                                                            <div
+                                                                                                class="d-flex flex-column mb-4 mb-xxl-0 col-xxl-8">
+
+                                                                                                <div
+                                                                                                    class="mb-4 stories-logo-wrapper overflow-hidden">
+
+                                                                                                    <div
+                                                                                                        class="field-nir-thumbnail">
+                                                                                                        <div
+                                                                                                            class="field__item">
+                                                                                                            <img src="img/testimonial.png"
+                                                                                                                alt="hongqi"
+                                                                                                                class="image-style-nir-asset-small" />
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+
+
+                                                                                                <div
+                                                                                                    class="ndm-title mb-4">
+                                                                                                    Yeah ! It was a great experince with Black Cobra Laminates. We are really very happy from their premium products
+                                                                                                </div>
+
+
+
+
+
+
+                                                                                                <div
+                                                                                                    class="small ndm-learn-more">
+
+                                                                                                </div>
+
+                                                                                            </div>
+
+                                                                                           
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </article>
+
+                                                                                <article class="mb-4 mb-md-0">
+
+                                                                                    <a href="#"
+                                                                                        class="d-flex flex-column h-100"
+                                                                                        target="_blank"
+                                                                                        aria-label="link">
+                                                                                        <div class="row h-100">
+                                                                                            <div
+                                                                                                class="d-flex flex-column mb-4 mb-xxl-0 col-xxl-8">
+
+                                                                                                <div
+                                                                                                    class="mb-4 stories-logo-wrapper overflow-hidden">
+
+                                                                                                    <div
+                                                                                                        class="field-nir-thumbnail">
+                                                                                                        <div
+                                                                                                            class="field__item">
+                                                                                                            <img src="img/testimonial.png"
+                                                                                                                alt="hongqi"
+                                                                                                                class="image-style-nir-asset-small" />
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+
+
+                                                                                                <div
+                                                                                                    class="ndm-title mb-4">
+                                                                                                    Yeah ! It was a great experince with Black Cobra Laminates. We are really very happy from their premium products
+                                                                                                </div>
+
+
+
+
+
+
+                                                                                                <div
+                                                                                                    class="small ndm-learn-more">
+
+                                                                                                </div>
+
+                                                                                            </div>
+
+                                                                                           
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </article>
+                                                                                <article class="mb-4 mb-md-0">
+
+                                                                                    <a href="#"
+                                                                                        class="d-flex flex-column h-100"
+                                                                                        target="_blank"
+                                                                                        aria-label="link">
+                                                                                        <div class="row h-100">
+                                                                                            <div
+                                                                                                class="d-flex flex-column mb-4 mb-xxl-0 col-xxl-8">
+
+                                                                                                <div
+                                                                                                    class="mb-4 stories-logo-wrapper overflow-hidden">
+
+                                                                                                    <div
+                                                                                                        class="field-nir-thumbnail">
+                                                                                                        <div
+                                                                                                            class="field__item">
+                                                                                                            <img src="img/testimonial.png"
+                                                                                                                alt="hongqi"
+                                                                                                                class="image-style-nir-asset-small" />
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+
+
+                                                                                                <div
+                                                                                                    class="ndm-title mb-4">
+                                                                                                    Yeah ! It was a great experince with Black Cobra Laminates. We are really very happy from their premium products
+                                                                                                </div>
+
+
+
+
+
+
+                                                                                                <div
+                                                                                                    class="small ndm-learn-more">
+
+                                                                                                </div>
+
+                                                                                            </div>
+
+                                                                                           
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </article>
+                                                                                <article class="mb-4 mb-md-0">
+
+                                                                                    <a href="#"
+                                                                                        class="d-flex flex-column h-100"
+                                                                                        target="_blank"
+                                                                                        aria-label="link">
+                                                                                        <div class="row h-100">
+                                                                                            <div
+                                                                                                class="d-flex flex-column mb-4 mb-xxl-0 col-xxl-8">
+
+                                                                                                <div
+                                                                                                    class="mb-4 stories-logo-wrapper overflow-hidden">
+
+                                                                                                    <div
+                                                                                                        class="field-nir-thumbnail">
+                                                                                                        <div
+                                                                                                            class="field__item">
+                                                                                                            <img src="img/testimonial.png"
+                                                                                                                alt="hongqi"
+                                                                                                                class="image-style-nir-asset-small" />
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+
+
+                                                                                                <div
+                                                                                                    class="ndm-title mb-4">
+                                                                                                    Yeah ! It was a great experince with Black Cobra Laminates. We are really very happy from their premium products
+                                                                                                </div>
+
+
+
+
+
+
+                                                                                                <div
+                                                                                                    class="small ndm-learn-more">
+
+                                                                                                </div>
+
+                                                                                            </div>
+
+                                                                                           
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </article>
+                                                                                <article class="mb-4 mb-md-0">
+
+                                                                                    <a href="#"
+                                                                                        class="d-flex flex-column h-100"
+                                                                                        target="_blank"
+                                                                                        aria-label="link">
+                                                                                        <div class="row h-100">
+                                                                                            <div
+                                                                                                class="d-flex flex-column mb-4 mb-xxl-0 col-xxl-8">
+
+                                                                                                <div
+                                                                                                    class="mb-4 stories-logo-wrapper overflow-hidden">
+
+                                                                                                    <div
+                                                                                                        class="field-nir-thumbnail">
+                                                                                                        <div
+                                                                                                            class="field__item">
+                                                                                                            <img src="img/testimonial.png"
+                                                                                                                alt="hongqi"
+                                                                                                                class="image-style-nir-asset-small" />
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+
+
+                                                                                                <div
+                                                                                                    class="ndm-title mb-4">
+                                                                                                    Yeah ! It was a great experince with Black Cobra Laminates. We are really very happy from their premium products
+                                                                                                </div>
+
+
+
+
+
+
+                                                                                                <div
+                                                                                                    class="small ndm-learn-more">
+
+                                                                                                </div>
+
+                                                                                            </div>
+
+                                                                                           
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </article>
+                                                                                <article class="mb-4 mb-md-0">
+
+                                                                                    <a href="#"
+                                                                                        class="d-flex flex-column h-100"
+                                                                                        target="_blank"
+                                                                                        aria-label="link">
+                                                                                        <div class="row h-100">
+                                                                                            <div
+                                                                                                class="d-flex flex-column mb-4 mb-xxl-0 col-xxl-8">
+
+                                                                                                <div
+                                                                                                    class="mb-4 stories-logo-wrapper overflow-hidden">
+
+                                                                                                    <div
+                                                                                                        class="field-nir-thumbnail">
+                                                                                                        <div
+                                                                                                            class="field__item">
+                                                                                                            <img src="img/testimonial.png"
+                                                                                                                alt="hongqi"
+                                                                                                                class="image-style-nir-asset-small" />
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+
+
+                                                                                                <div
+                                                                                                    class="ndm-title mb-4">
+                                                                                                    Yeah ! It was a great experince with Black Cobra Laminates. We are really very happy from their premium products
+                                                                                                </div>
+
+
+
+
+
+
+                                                                                                <div
+                                                                                                    class="small ndm-learn-more">
+
+                                                                                                </div>
+
+                                                                                            </div>
+
+                                                                                           
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </article>
+                                                                                <article class="mb-4 mb-md-0">
+
+                                                                                    <a href="#"
+                                                                                        class="d-flex flex-column h-100"
+                                                                                        target="_blank"
+                                                                                        aria-label="link">
+                                                                                        <div class="row h-100">
+                                                                                            <div
+                                                                                                class="d-flex flex-column mb-4 mb-xxl-0 col-xxl-8">
+
+                                                                                                <div
+                                                                                                    class="mb-4 stories-logo-wrapper overflow-hidden">
+
+                                                                                                    <div
+                                                                                                        class="field-nir-thumbnail">
+                                                                                                        <div
+                                                                                                            class="field__item">
+                                                                                                            <img src="img/testimonial.png"
+                                                                                                                alt="hongqi"
+                                                                                                                class="image-style-nir-asset-small" />
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+
+
+
+                                                                                                <div
+                                                                                                    class="ndm-title mb-4">
+                                                                                                    Yeah ! It was a great experince with Black Cobra Laminates. We are really very happy from their premium products
+                                                                                                </div>
+
+
+
+
+
+
+                                                                                                <div
+                                                                                                    class="small ndm-learn-more">
+
+                                                                                                </div>
+
+                                                                                            </div>
+
+                                                                                           
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </article>
+
+                                                                                
+
+                                                                                
+
+                                                                             </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+
+
+
+
+                                                            
+
+
+
+
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+
+
+                                                <section class="py-5" style="margin-bottom: 100px; margin-top:50px ;">
+                                                    <div class="container py-5">
+                                                        <div class="row pt-5">
+                                                            <div class="col-lg-7">
+                                                                <div class="block-region-header">
+                                                                    <div
+                                                                        class="block-content--nir-lp-block block-content--nir-lp-block--6041 block--block-content8652fa1e-30fd-4d7c-b17f-48c31d170ef7 block--block-content8652fa1e-30fd-4d7c-b17f-48c31d170ef7--5811 block--header--block-content--8652fa1e-30fd-4d7c-b17f-48c31d170ef7 block--header--block-content--8652fa1e-30fd-4d7c-b17f-48c31d170ef7--5811 block--e2d0677b-4130-4050-bc70-cf550b5a707d block--e2d0677b-4130-4050-bc70-cf550b5a707d--5811 block block-block-content block-block-content8652fa1e-30fd-4d7c-b17f-48c31d170ef7">
+
+
+
+                                                                        <div
+                                                                            class="field field--name-field-nir-lp-block-node field--type-entity-reference field--label-hidden field__item">
+                                                                            <div
+                                                                                class="field field--name-field-nir-lp-block-body field--type-text-long field--label-hidden field__item">
+
+                                                                                <img src="img/bottom-img.jpg" alt="">
+
+                                                                                <!-- <h2
+                                                                                    class="body-font weight-normal h3">
+                                                                                    When it comes to quality, we're
+                                                                                    defining the<span
+                                                                                        class="text-gradient-1">modern forms of Laminates</span></h2>
+
+                                                                                <p class="lead" style="text-align:justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel reprehenderit necessitatibus, explicabo fuga sed unde, quae architecto fugit reiciendis, amet recusandae quis. Mollitia, suscipit sint, ut error necessitatibus veritatis, quaerat dolores perferendis possimus facilis voluptate similique voluptates ipsam eos? Natus velit ab nam odio, doloremque adipisci. Dolorum id ipsam quidem?</p> -->
+
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-5 col-xxl-4 offset-xxl-1">
+                                                                <div class="block-region-column1">
+                                                                    <div
+                                                                        class="block-content--nir-lp-block block-content--nir-lp-block--9691 block--block-content9d2dd0e5-c359-4b0d-9613-6ec0178ba9ca block--block-content9d2dd0e5-c359-4b0d-9613-6ec0178ba9ca--5811 block--column1--block-content--9d2dd0e5-c359-4b0d-9613-6ec0178ba9ca block--column1--block-content--9d2dd0e5-c359-4b0d-9613-6ec0178ba9ca--5811 block--3c1c4c8e-f09f-4e4c-9137-f89eeade55af block--3c1c4c8e-f09f-4e4c-9137-f89eeade55af--5811 block block-block-content block-block-content9d2dd0e5-c359-4b0d-9613-6ec0178ba9ca">
+
+
+
+                                                                        <div
+                                                                            class="field field--name-field-nir-lp-block-node field--type-entity-reference field--label-hidden field__item">
+                                                                            <div
+                                                                                class="field field--name-field-nir-lp-block-body field--type-text-long field--label-hidden field__item">
+                                                                                <div class="row">
+                                                                                    <div class="col-6 mb-4">
+                                                                                        <p><span
+                                                                                                class="d-block ndm-stat text-a"><span
+                                                                                                    class="counter">100</span>+</span>QUALITY
+                                                                                            </p>
+                                                                                    </div>
+
+                                                                                    <div class="col-6 mb-4">
+                                                                                        <p><span
+                                                                                                class="d-block ndm-stat text-b"><span
+                                                                                                    class="counter">100</span>+</span>
+                                                                                            CUSTOMER SATISFACTION</p>
+                                                                                    </div>
+
+                                                                                    <div class="col-6 mb-4">
+                                                                                        <p><span
+                                                                                                class="d-block ndm-stat text-c"><span
+                                                                                                    class="counter">32</span>+</span>
+                                                                                            YEARS OF INNOVATION</p>
+                                                                                    </div>
+
+                                                                                    <div class="col-6 mb-4">
+                                                                                        <p><span
+                                                                                                class="d-block ndm-stat text-d"><span
+                                                                                                    class="counter">100</span>+</span>
+                                                                                            RESPONSE
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+
+
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <!-- /.radix-pond -->
+                                    </div>
+                                </article>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+            <section class="py-5">
+                <div class="container py-5">
+                    <div class="region region-discover">
+                        <div id="block-gbfooternewsletter-2"
+                            class="block-content--nir-global-block block-content--nir-global-block--9236 block--block-content4c2face0-8ee6-414b-87a4-ab05067671e0 block--block-content4c2face0-8ee6-414b-87a4-ab05067671e0--5811 block--discover--block-content--4c2face0-8ee6-414b-87a4-ab05067671e0 block--discover--block-content--4c2face0-8ee6-414b-87a4-ab05067671e0--5811 block--0a1a0037-0006-4334-8d7d-2caba7e9b7b1 block--0a1a0037-0006-4334-8d7d-2caba7e9b7b1--5811 block block-block-content block-block-content4c2face0-8ee6-414b-87a4-ab05067671e0">
+
+
+
+                            
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Video Modal -->
+            <div class="bsModal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="bsModal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="videoWrapper"><iframe title="video-player" src=""></iframe></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bio Modal -->
+            <div class="bsModal bios-modal fade" id="modalBio" tabindex="-1" role="dialog"
+                aria-labelledby="modalBioTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content p-4 idm-rounded">
+                        <div class="modal-header">
+                            <div class="row w-100 d-flex flex-row-reverse">
+                                <div class="col text-end">
+                                    <button type="button" class="btn-close" data-bs-dismiss="bsModal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-5 align-self-end">
+                                    <h2 class="h4 mb-0 modal-bio-name text-primary">
+                                        <!-- dynamic from JS -->
+                                    </h2>
+                                    <h2 class="h6 body-font mb-0 modal-bio-title">
+                                        <!-- dynamic from JS -->
+                                    </h2>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-3 ">
+                                    <div class="square">
+                                        <img src="" class="object-top modal-bio-pic w-100" alt="bio image">
+                                        <!-- dynamic from JS -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body modal-bio-body">
+                            <!-- dynamic from JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Modal -->
+            <div class="bsModal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Search</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="bsModal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row g-3" action="/search">
+                                <div class="col-auto flex-grow-1">
+                                    <label for="siteSearch" class="visually-hidden">Search this site</label>
+                                    <input name="query" type="search" class="form-control" id="siteSearch"
+                                        placeholder="Search">
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+        <footer class="py-5" style="background-color:#343132 ;">
+            
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-6 col-md-4 col-lg-2 mb-4" style="padding-top: 10px;">
+                       <img src="img/logo.png" alt="">
+                    </div>
+
+                    <div class="col-md-7 col-lg-6 offset-md-1">
+                        <nav aria-label="Footer Navigation" class="navbar navbar-expand navbar-dark">
+                            <ul
+                                class="small w-100 navbar-nav navbar-expand flex-column flex-sm-row justify-content-between">
+
+
+                                <li class="nav-item">
+                                    <a href="index.html" target="" rel="" class="nav-link text-uppercase is-active"
+                                        data-drupal-link-system-path="node/5811">HOME</a>
+                                </li>
+
+
+                                <li class="nav-item">
+                                    <a href="#"
+                                        class="nav-link dropdown-toggle nav-link text-uppercase"
+                                        data-drupal-link-system-path="node/9701">ABOUT US</a>
+                                </li>
+
+
+                                <li class="nav-item">
+                                    <a href="#" target="" rel=""
+                                        class="nav-link text-uppercase"
+                                        data-drupal-link-system-path="node/7376">PRODUCTS</a>
+                                </li>
+
+
+                               <li class="nav-item">
+                                    <a href="#"
+                                        class="nav-link dropdown-toggle nav-link text-uppercase"
+                                        title="Main Investor Relations Page"
+                                        data-drupal-link-system-path="node/5806">GALLERY</a>
+                                </li>
+
+
+                                 <li class="nav-item">
+                                    <a href="#" target="" rel="" class="nav-link text-uppercase"
+                                        data-drupal-link-system-path="node/7771">CONTACT US</a>
+                                </li>
+
+                           </ul>
+                        </nav>
+                    </div>
+
+                    <div class="mt-5 mt-lg-0 col-lg-3 text-lg-end">
+                        <nav aria-label="social media links"
+                            class="justify-content-lg-end navbar navbar-expand navbar-dark">
+
+
+
+
+
+
+                            <ul class="navbar-nav navbar-expand">
+
+                                <li class="nav-item">
+
+                                    <a href="https://www.instagram.com/blackcobragroup/" aria-label="instagram"
+                                        class="nav-link hover-scale-1 d-block" aria-label="twitter" target="_blank">
+                                        <i class="fab fa-instagram fa-lg" aria-hidden="true"><span
+                                                class="sr-only">instagram</span></i>
+                                    </a>
+
+                                </li>
+                                <li class="nav-item">
+
+                                    <a href="https://www.linkedin.com/company/79742728/admin/" aria-label="linkedin"
+                                        class="nav-link hover-scale-1 d-block" aria-label="linkedin-in" target="_blank">
+                                        <i class="fab fa-linkedin-in fa-lg" aria-hidden="true"><span
+                                                class="sr-only">linkedin</span></i>
+                                    </a>
+
+                                </li>
+                                <li class="nav-item">
+
+                                    <a href="https://www.facebook.com/blackcobragroup" aria-label="facebook"
+                                        class="nav-link hover-scale-1 d-block" aria-label="vimeo-v" target="_blank">
+                                        <i class="fab fa-facebook fa-lg" aria-hidden="true"><span
+                                                class="sr-only">facebook</span></i>
+                                    </a>
+
+                                </li>
+                                <li class="nav-item">
+
+                                    <a href="https://www.youtube.com/channel/UCrJ-b50GjlpqDnvCp2Ol5_w" aria-label="youtube"
+                                        class="nav-link hover-scale-1 d-block" aria-label="vimeo-v" target="_blank">
+                                        <i class="fab fa-youtube fa-lg" aria-hidden="true"><span
+                                                class="sr-only">youtube</span></i>
+                                    </a>
+
+                                </li>
+
+                            </ul>
+
+
+
+
+                        </nav>
+
+                        <div class="region region-corp-info">
+                            <div id="block-gbfootercompanyaddress"
+                                class="block-content--nir-global-block block-content--nir-global-block--6116 block--block-contentf390be37-9ad7-4a7e-a354-7aad647bf74c block--block-contentf390be37-9ad7-4a7e-a354-7aad647bf74c--5811 block--corp-info--block-content--f390be37-9ad7-4a7e-a354-7aad647bf74c block--corp-info--block-content--f390be37-9ad7-4a7e-a354-7aad647bf74c--5811 block--f25ec291-70f3-4988-b45e-7f2b19177c66 block--f25ec291-70f3-4988-b45e-7f2b19177c66--5811 block block-block-content block-block-contentf390be37-9ad7-4a7e-a354-7aad647bf74c">
+
+
+
+                                <div
+                                    class="field field--name-field-nir-global-block-node field--type-entity-reference field--label-hidden field__item">
+                                    <div
+                                        class="field field--name-field-nir-global-block-body field--type-text-long field--label-hidden field__item">
+                                        
+
+                                        <p class="large" style="color: rgba(255, 255, 255, 0.55)">Address-<br /> Phone No.:  <br>
+                                            <a href="mailto:info@blackcobra.org" style="color: rgba(255, 255, 255, 0.55)"> <i class="fas fa-envelope"></i>    &nbsp; info@blackcobra.org</a>
+                                        </p>
+
+                                       
+                                        
+                                    </div>
+
+                                </div>
+
+                                
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-12">
+                        <nav class="small justify-content-lg-start navbar navbar-expand navbar-dark ndm-utility">
+
+
+
+
+
+                            <ul class="navbar-nav navbar-expand">
+
+                                <li class="nav-item">
+                                    <a href="index.html" target="" rel="" class="nav-link"
+                                        data-drupal-link-system-path="node/7776">&#169; 2022 BLACK COBRA | ALL RIGHTS RESERVED,</a>
+                                </li>
+                               
+                                <li class="nav-item">
+                                    <a href="https://www.webadsindia.com/" target="_blank"
+                                        class="nav-link">DESIGNED BY WEBADS INDIA</a>
+                                </li>
+
+                            </ul>
+
+
+
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <script type="text/javascript">
+        var s_CCSWebHostingAccount = "trcg-";
+    </script>
+    <script type="application/json" data-drupal-selector="drupal-settings-json">
+        {
+            "path": {
+                "baseUrl": "\/",
+                "scriptPath": null,
+                "pathPrefix": "",
+                "currentPath": "node\/5811",
+                "currentPathIsAdmin": false,
+                "isFront": true,
+                "currentLanguage": "en",
+                "themeUrl": "sites\/g\/files\/knoqqb75506\/themes\/site\/nir_pid3429"
+            },
+            "pluralDelimiter": "\u0003",
+            "suppressDeprecationErrors": true,
+            "ajaxPageState": {
+                "libraries": "classy\/node,nir_analytics\/nir_analytics.adobe_launch,nir_analytics\/nir_analytics.adobe_prod,nir_base\/lib,nir_base\/nir_icons,nir_base\/nir_toolbar,nir_base\/sidr,nir_ckeditor_datatables\/datatables,nir_faq\/nir_faq_accordion,nir_multimedia\/nir_multimedia,nir_pid3429\/override,nir_website_notices\/nir_website_notices.notices,radix_layouts\/radix_layouts,system\/base",
+                "theme": "nir_pid3429",
+                "theme_token": null
+            },
+            "ajaxTrustedUrl": [],
+            "user": {
+                "uid": 0,
+                "permissionsHash": "b90a2e4da0fa114cc6b0b0ecaf570bd1630a6bdeeb031a01037f9a8c6d33aca3"
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/one.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="//unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="./js/two.js"></script>
+    <script src="//assets.adobedtm.com/898335afd880/c52ee8aa1e90/launch-5ef258dce664.min.js" async></script>
+
+
+    <script type="text/javascript">
+        window.NREUM || (NREUM = {});
+        NREUM.info = {
+            "beacon": "bam.nr-data.net",
+            "licenseKey": "761e715901",
+            "applicationID": "37278538,24276188",
+            "transactionName": "ZlVXYRcAW0ZRW0QKX18fdFYRCFpbH3xCFkBQXGlbCgVQaXNXXhdCXlxZUBc9e1pUXWYKVUZzWlsRE1pZXF1CTg5HWVBC",
+            "queueTime": 0,
+            "applicationTime": 929,
+            "atts": "ShJUF18aSEg=",
+            "errorBeacon": "bam.nr-data.net",
+            "agent": ""
+        }
+    </script>
+</body>
+
+</html>
